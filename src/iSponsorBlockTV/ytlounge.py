@@ -136,6 +136,9 @@ class YtLoungeApi(pyytlounge.YtLoungeApi):
             data = args[0]
             if data["reason"] == "disconnectedByUserScreenInitiated":  # Short playing?
                 self.shorts_disconnected = True
+        elif event_type == "setAutoplayMode":
+            data = args[0]
+            print(data)
 
         super()._process_event(event_id, event_type, args)
 
